@@ -33,13 +33,13 @@ module.exports = {
 │  👤 ᴜꜱᴇʀ: ${os.userInfo().username}
 │ 
 ╰───────────────⭓
-> 𝗽𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝗽𝗼𝗽𝗸𝗶𝗱`
+> 𝗽𝗼𝘄𝗲𝗿𝗲𝗱 by Bilal`
             
 
             const sender = msg.key.remoteJid;
 
             await socket.sendMessage(sender, {
-                image: { url: 'https://files.catbox.moe/kiy0hl.jpg' }, // Confirm accessibility
+                image: { url: 'https://files.catbox.moe/kunzpz.png' }, // Confirm accessibility
                 caption,
                 contextInfo: {
                     mentionedJid: ['254732297194@s.whatsapp.net'],
@@ -47,7 +47,7 @@ module.exports = {
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363289379419860@newsletter',
-                        newsletterName: '𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱',
+                        newsletterName: 'Bilal 𝘅𝗺𝗱',
                         serverMessageId: 143
                     }
                 }
