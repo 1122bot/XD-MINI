@@ -40,7 +40,7 @@ module.exports = {
         document: { url: app.file.path_alt },
         fileName: `${app.name}.apk`,
         mimetype: "application/vnd.android.package-archive",
-        caption: `*👑 APK NAME:* ${app.name}\n*👑 SIZE:* ${appSize} MB\n\n*𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱*`
+        caption: `*👑 APK NAME:* ${app.name}\n*👑 SIZE:* ${appSize} MB\n\n*BILAL 𝘅𝗺𝗱*`
       }, { quoted: msg });
 
       // Delete waiting message
