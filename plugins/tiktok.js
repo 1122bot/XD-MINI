@@ -88,7 +88,7 @@ module.exports = {
 │ 💬 *Comments:* ${meta.commentCount || "N/A"}
 │ 🔗 *URL:* ${text}
 │
-│ ✅ *Downloaded by POPKID-XMD 👑*
+│ ✅ *Downloaded by BILAL-XMD 👑*
 ╰───────────────⭓
       `;
 
