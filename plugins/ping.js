@@ -11,7 +11,7 @@ module.exports = {
 
     // First quick reply
     await sock.sendMessage(msg.key.remoteJid, { 
-      text: "*⏳popkid xmd bot*" 
+      text: "*⏳BILAL xmd bot*" 
     });
 
     const latency = Date.now() - start;
