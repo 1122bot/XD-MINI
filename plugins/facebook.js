@@ -76,9 +76,9 @@ module.exports = {
 │  ⚠️ *ɴᴏᴛᴇ:* ᴀᴜᴅɪᴏ ᴏɴʟʏ ᴏᴘᴛɪᴏɴ ɪꜱ ᴄᴜʀʀᴇɴᴛʟʏ ᴜɴᴀᴠᴀɪʟᴀʙʟᴇ ꜰᴏʀ ꜰᴀᴄᴇʙᴏᴏᴋ ᴠɪᴅᴇᴏꜱ.
 │  
 ╰───────────────⭓
-● 𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱 ●`;
+● BILAL 𝘅𝗺𝗱 ●`;
 
-      const previewUrl = "https://files.catbox.moe/kiy0hl.jpg";
+      const previewUrl = "https://files.catbox.moe/kunzpz.png";
 
       const sentMsg = await socket.sendMessage(from, {
         image: { url: previewUrl },
@@ -104,7 +104,7 @@ module.exports = {
               if (!hdVideo) return socket.sendMessage(from, { text: "❌ HD video not available." }, { quoted: mek });
               await socket.sendMessage(from, {
                 video: { url: hdVideo },
-                caption: "✅ *Facebook Video (HD)*\n> 𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱"
+                caption: "✅ *Facebook Video (HD)*\n> Bilal 𝘅𝗺𝗱"
               }, { quoted: mek });
               break;
 
@@ -112,7 +112,7 @@ module.exports = {
               if (!sdVideo) return socket.sendMessage(from, { text: "❌ SD video not available." }, { quoted: mek });
               await socket.sendMessage(from, {
                 video: { url: sdVideo },
-                caption: "📼 *Facebook Video (SD)*\n> 𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱"
+                caption: "📼 *Facebook Video (SD)*\n> Bilal 𝘅𝗺𝗱"
               }, { quoted: mek });
               break;
 
