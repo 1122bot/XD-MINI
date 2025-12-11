@@ -93,7 +93,7 @@ module.exports = {
 │  🎬 *Facebook Video Downloaded!*
 │  ✅ Successfully fetched and sent.
 │  
-│  👑 *popkid xmd bot*
+│  👑 *Bilal xmd bot*
 ╰───────────────⭓
                 `
             }, { quoted: msg });
