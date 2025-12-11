@@ -83,7 +83,7 @@ module.exports = {
 
       // Done message (same style as ping)
       await sock.sendMessage(jid, { 
-        text: "*✅ Done...😃*" 
+        text: "*BILAL-MD*" 
       });
 
     } catch (err) {
