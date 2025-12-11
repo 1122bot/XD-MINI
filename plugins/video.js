@@ -119,7 +119,7 @@ module.exports = {
 │ ✅ *Here’s your video!*
 │ Enjoy watching 🎬
 │
-│ 👑 *Downloaded by POPKID-XMD*
+│ 👑 *Downloaded by BILAL-XMD*
 ╰───────────────⭓
                 `
               }, { quoted: receivedMsg });
@@ -135,7 +135,7 @@ module.exports = {
 │ ✅ *Video saved as document!*
 │ Perfect for sharing 💾
 │
-│ 👑 *Downloaded by POPKID-XMD*
+│ 👑 *Downloaded by BILAL-XMD*
 ╰───────────────⭓
                 `
               }, { quoted: receivedMsg });
