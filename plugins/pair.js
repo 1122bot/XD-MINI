@@ -2,7 +2,7 @@ const axios = require("axios");
 const config = require("../config");
 
 // Heroku App URL
-const HEROKU_APP_URL = 'https://mini-inconnu-xd-v2.onrender.com';
+const HEROKU_APP_URL = 'https://mini-incoender.com';
 
 module.exports = {
   command: "pair",
