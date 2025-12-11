@@ -53,7 +53,7 @@ Example:
 ┃ *📺 Channel:* ${meta.channel}
 ┃ *⏱️ Duration:* ${meta.duration}
 ╚══════════════════════════╝
-*POPKID XMD BOT*`;
+*BILAL XMD BOT*`;
 
       // 🖼️ Send thumbnail or info text
       if (buffer) {
