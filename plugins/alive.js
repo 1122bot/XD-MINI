@@ -20,15 +20,15 @@ module.exports = {
 │  💠 *Bot Status:* ✅ Alive & Running
 │  🕒 *Time:* ${time}
 │  📅 *Date:* ${date}
-│  ⚡ *Response Speed:* ${speed}ms
+│  ⚡ *Response Speed:* ${speed}
 │  
-│  🤖 *Popkid XMD Mini Bot Active!*
+│  🤖 *Bilal XMD Mini Bot Active!*
 │  
 │  💬 *SUPPORT CHANNEL:*
-│  https://whatsapp.com/channel/0029VacgxK96hENmSRMRxx1r
+│  https://whatsapp.com/channel/0029Vaj3Xnu17EmtDxTNnQ0G
 │  
 │  🧩 *SUPPORT GROUP:*
-│  https://chat.whatsapp.com/BRh9Hn12AGh7AKT4HTqXK5?mode=wwt
+│  https://chat.whatsapp.com/BwWffeDwiqe6cjDDklYJ5m?mode=hqrt3
 │  
 ╰───────────────⭓
 `;
