@@ -23,12 +23,12 @@ module.exports = {
     AUTO_LIKE_EMOJI: ['💥', '👍', '😍', '💗', '🎈', '🎉', '🥳', '😎', '🚀', '🔥'],
     PREFIX: '.',
     MAX_RETRIES: 3,
-    GROUP_INVITE_LINK: 'https://chat.whatsapp.com/BRh9Hn12AGh7AKT4HTqXK5?mode=wwt',
+    GROUP_INVITE_LINK: 'https://chat.whatsapp.com/BwWffeDwiqe6cjDDklYJ5m',
     ADMIN_LIST_PATH: './lib/admin.json',
-    RCD_IMAGE_PATH: 'https://files.catbox.moe/kiy0hl.jpg',
-    NEWSLETTER_JID: '120363289379419860@newsletter',
+    RCD_IMAGE_PATH: 'https://pmd-img2url.koyeb.app/v/abf0a4f3dbc156f9658d867af21af8e9.jpg',
+    NEWSLETTER_JID: '120363296818107681@newsletter',
     NEWSLETTER_MESSAGE_ID: '428',
-    OTP_EXPIRY: 300000,    OWNER_NUMBER: '254732297194',
+    OTP_EXPIRY: 300000,    OWNER_NUMBER: '923078071982',
     CHANNEL_LINK: 'https://whatsapp.com/channel/0029VacgxK96hENmSRMRxx1r'
 };
 
