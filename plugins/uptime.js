@@ -21,7 +21,7 @@ module.exports = {
 │  ⏰ Minutes : ${minutes}m
 │  ⏱️ Seconds : ${seconds}s
 │  
-│  ⚡ *popkid xmd*
+│  ⚡ *Bilal xmd*
 ╰───────────────⭓
 `;
 
