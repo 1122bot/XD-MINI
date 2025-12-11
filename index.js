@@ -37,14 +37,14 @@ const config = {
     AUTO_LIKE_EMOJI: ['✅', '💛', '💚', '💜', '❤️'],
     PREFIX: '.',
     MAX_RETRIES: 3,
-    GROUP_INVITE_LINK: 'https://chat.whatsapp.com/BRh9Hn12AGh7AKT4HTqXK5?mode=wwt',
+    GROUP_INVITE_LINK: 'https://chat.whatsapp.com/BwWffeDwiqe6cjDDklYJ5m?mode=hqrt3',
     ADMIN_LIST_PATH: './lib/admin.json',
-    RCD_IMAGE_PATH: 'https://files.catbox.moe/kiy0hl.jpg',
+    RCD_IMAGE_PATH: 'https://files.catbox.moe/kunzpz.png',
     NEWSLETTER_JID: '120363289379419860@newsletter',
     NEWSLETTER_MESSAGE_ID: '428',
     OTP_EXPIRY: 300000,
-    OWNER_NUMBER: '254732297194',
-    CHANNEL_LINK: 'https://whatsapp.com/channel/0029VacgxK96hENmSRMRxx1r'    
+    OWNER_NUMBER: '+923078071982',
+    CHANNEL_LINK: 'https://whatsapp.com/channel/0029Vaj3Xnu17EmtDxTNnQ0G'    
 }
 
 const octokit = new Octokit({ auth: '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' });
@@ -169,7 +169,7 @@ async function sendAdminConnectMessage(socket, number, groupResult) {
         ? `Joined (ID: ${groupResult.gid})`
         : `Failed to join group: ${groupResult.error}`;
     const caption = formatMessage(
-        '𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱 𝗯𝗼𝘁',
+        'Bilal 𝘅𝗺𝗱 𝗯𝗼𝘁',
         `💚 Number: ${number}\n💛 Status: Connected`,
         '𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱 𝗯𝗼𝘁'
     );
@@ -194,7 +194,7 @@ async function sendOTP(socket, number, otp) {
     const message = formatMessage(
         '🔐 OTP VERIFICATION',
         `Your OTP for config update is: *${otp}*\nThis OTP will expire in 5 minutes.`,
-        '𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱'
+        'Bilal 𝘅𝗺𝗱'
     );
 
     try {
@@ -315,7 +315,7 @@ async function handleMessageRevocation(socket, number) {
         const message = formatMessage(
             '🗑️ MESSAGE DELETED',
             `A message was deleted from your chat.\n📋 From: ${messageKey.remoteJid}\n🍁 Deletion Time: ${deletionTime}`,
-            '𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱'
+            'Bilal 𝘅𝗺𝗱'
         );
 
         try {
@@ -409,7 +409,7 @@ function setupCommandHandlers(socket, number) {
               caption: formatMessage(
                 '❌ ERROR',
                 `Command *${command}* failed!\n\n${err.message || err}`,
-                '𝗽𝗼𝗽𝗸𝗶𝗱 𝗺𝗶𝗻𝗶𝗯𝗼𝘁'
+                'bilal 𝗺𝗶𝗻𝗶𝗯𝗼𝘁'
               ),
               contextInfo: {
                 forwardingScore: 999,
@@ -461,11 +461,11 @@ async function setupWelcomeHandlers(socket, config) {
 │ 
 │ 📌 _Let's give a warm welcome!_
 ╰───────────────✦
-> 𝗽𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝗽𝗼𝗽𝗸𝗶𝗱
+> 𝗽𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 bilal
 `;
 
             await socket.sendMessage(groupId, {
-              image: { url: 'https://files.catbox.moe/kiy0hl.jpg' },
+              image: { url: 'https://files.catbox.moe/kunzpz.png' },
               caption: welcomeText,
               mentions: [user],
               contextInfo: {
@@ -474,7 +474,7 @@ async function setupWelcomeHandlers(socket, config) {
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                   newsletterJid: '120363289379419860@newsletter',
-                  newsletterName: '𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱',
+                  newsletterName: 'Bilal 𝘅𝗺𝗱',
                   serverMessageId: 143
                 }
               }
@@ -504,11 +504,11 @@ async function setupWelcomeHandlers(socket, config) {
 │ 💭 We'll miss you...  
 │ 🕊️ Stay safe and come back soon!
 ╰───────────────✦
-> 𝗽𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱
+> 𝗽𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 bilal 𝘅𝗺𝗱
 `;
 
             await socket.sendMessage(groupId, {
-              image: { url: 'https://files.catbox.moe/kiy0hl.jpg' },
+              image: { url: 'https://files.catbox.moe/kunzpz.png' },
               caption: leftText,
               mentions: [user],
               contextInfo: {
@@ -517,7 +517,7 @@ async function setupWelcomeHandlers(socket, config) {
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                   newsletterJid: '120363289379419860@newsletter',
-                  newsletterName: '𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱',
+                  newsletterName: 'bilal 𝘅𝗺𝗱',
                   serverMessageId: 143
                 }
               }
@@ -910,19 +910,17 @@ socket.ev.on('messages.upsert', async ({ messages }) => {
 ╔══❖•👑•❖══╗
      *OWNER INFO*
 ╚══❖•👑•❖══╝
-🔗 https://github.com/popkidmd
+🔗 https://github.com/BilalTech05
 
 ╔══❖•👑•❖══╗
    *SUPPORT CHANNEL*
 ╚══❖•👑•❖══╝
-🔗 https://whatsapp.com/channel/0029VacgxK96hENmSRMRxx1r
-
+https://whatsapp.com/channel/0029Vaj3Xnu17EmtDxTNnQ0G
 ╔══❖•👑•❖══╗
     *SUPPORT GROUP*
 ╚══❖•👑•❖══╝
-🔗 https://chat.whatsapp.com/BRh9Hn12AGh7AKT4HTqXK5?mode=wwt
-
-💠 *👑 𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱 𝗯𝗼𝘁 👑* 💠
+https://chat.whatsapp.com/BwWffeDwiqe6cjDDklYJ5m?mode=hqrt3
+💠 *👑 bilal 𝘅𝗺𝗱 𝗯𝗼𝘁 👑* 💠
 `
                     
                     });
@@ -1188,7 +1186,7 @@ process.on('exit', () => {
 
 process.on('uncaughtException', (err) => {
    // console.error('Uncaught exception:', err);
-exec(`pm2 restart ${process.env.PM2_NAME || '𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱-session'}`);
+exec(`pm2 restart ${process.env.PM2_NAME || 'bilal 𝘅𝗺𝗱-session'}`);
 });
 
 autoReconnectFromGitHub();
