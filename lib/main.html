@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🟡 DATA CORE: ACCESS TERMINAL 🟡</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /*
+    -- INDUSTRIAL DATA-CORE STYLING CONFIGURATION --
+    */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Bebas+Neue&family=Orbitron:wght@500;700&display=swap');
+    
+    :root {
+      --core-yellow: #ffc400; /* Primary Accent */
+      --core-orange: #ff7f00; /* Secondary Highlight */
+      --core-dark: #121212; /* Base Dark */
+      --core-light: #f0f0f0;
+      --glass-bg: rgba(255, 255, 255, 0.08);
+      --border-color: rgba(255, 196, 0, 0.5);
+      --input-bg: rgba(0, 0, 0, 0.7);
+      --shadow-base: 0 0 10px rgba(255, 196, 0, 0.4);
+      --shadow-glow: 0 0 25px rgba(255, 196, 0, 0.8);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* Industrial Gray/Black Background */
+      background: linear-gradient(135deg, #1f1f1f 0%, #050505 100%);
+      color: var(--core-light);
+      font-family: 'Roboto Mono', monospace; /* Monospace for industrial look */
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Subtle background texture/noise */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 49px,
+        rgba(255, 196, 0, 0.05) 50px
+      ), repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 49px,
+        rgba(255, 196, 0, 0.05) 50px
+      );
+      z-index: -3;
+    }
+
+    /* Animated background glow */
+    body::after {
+      content: "";
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, var(--core-yellow) 0%, transparent 70%);
+      opacity: 0.15;
+      animation: pulse-glow 10s infinite ease-in-out alternate;
+      z-index: -2;
+    }
+
+    @keyframes pulse-glow {
+      0% { transform: scale(1) translate(-50%, -50%); opacity: 0.15; top: 10%; left: 10%; }
+      100% { transform: scale(1.2) translate(-50%, -50%); opacity: 0.3; top: 80%; left: 90%; }
+    }
+
+    /* Floating particles */
+    .particles div {
+      position: absolute;
+      width: 2px; /* Smaller, sharper particles */
+      height: 2px;
+      background: var(--core-yellow);
+      opacity: 0.8;
+      animation: float 20s linear infinite;
+      box-shadow: 0 0 5px var(--core-yellow);
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh); opacity: 0; }
+      10%, 90% { opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+
+    .container {
+      z-index: 10;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+    }
+
+    /* Core Box - Segmented/Modular Design */
+    .box {
+      width: 100%;
+      max-width: 350px;
+      padding: 0; /* Padding moved inside sections */
+      border-radius: 4px; /* Sharper corners */
+      background: var(--core-dark);
+      border: 3px solid var(--core-yellow);
+      box-shadow: var(--shadow-base);
+      text-align: center;
+      transition: all 0.4s ease-in-out;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    /* Segment separator line */
+    .box > div:not(:last-child) {
+      border-bottom: 1px solid rgba(255, 196, 0, 0.2);
+    }
+
+    .box:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    /* Header Section */
+    .box-header {
+      padding: 20px 15px 15px;
+      background: var(--core-dark);
+    }
+
+    /* Main Content Section */
+    .box-content {
+      padding: 15px;
+      background: var(--input-bg);
+    }
+    
+    /* Footer/Result Section */
+    .box-footer {
+      padding: 15px;
+      background: var(--core-dark);
+    }
+
+    /* Title Styling - Bold, Industrial Font */
+    .logo-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(30px, 7vw, 40px);
+      color: var(--core-yellow);
+      text-shadow: 0 0 10px rgba(255, 196, 0, 0.8);
+      margin-bottom: 5px;
+      letter-spacing: 4px;
+      line-height: 1;
+      padding-bottom: 2px;
+    }
+
+    h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(14px, 4vw, 18px);
+      color: var(--core-orange);
+      margin-bottom: 5px;
+      letter-spacing: 1px;
+    }
+
+    h6 {
+      color: var(--core-light);
+      font-size: 11px;
+      margin-bottom: 20px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* Input/Form styling */
+    .input-container {
+      display: flex;
+      background: var(--input-bg);
+      border: 1px solid var(--core-orange);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(255, 127, 0, 0.5);
+      margin-bottom: 10px;
+    }
+
+    .input-container input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      padding: 12px 14px;
+      color: var(--core-yellow);
+      font-family: 'Roboto Mono', monospace;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .input-container input::placeholder {
+      color: rgba(255, 196, 0, 0.6);
+    }
+
+    .input-container button {
+      background: var(--core-yellow);
+      border: none;
+      padding: 12px 18px;
+      color: var(--core-dark);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+      letter-spacing: 1px;
+    }
+
+    .input-container button:hover {
+      background: var(--core-orange);
+      color: white;
+      box-shadow: 0 0 15px var(--core-orange);
+    }
+
+    #waiting-message {
+      margin-top: 10px;
+      font-family: 'Roboto Mono', monospace;
+      color: var(--core-orange);
+      text-shadow: 0 0 5px var(--core-orange);
+      display: none;
+      font-size: 13px;
+      letter-spacing: 1px;
+      padding: 5px 0;
+    }
+
+    /* Code Display Styling */
+    .code-display {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      background: var(--input-bg);
+      border: 1px solid var(--core-yellow);
+      padding: 10px 15px;
+      border-radius: 4px;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 14px;
+      box-shadow: var(--shadow-base);
+    }
+
+    .code-display:hover {
+      background: rgba(255, 196, 0, 0.1);
+      box-shadow: var(--shadow-glow);
+      transform: scale(1.03);
+    }
+
+    .code-text {
+      color: var(--core-light);
+      font-weight: 400;
+    }
+
+    .code-value {
+      color: var(--core-yellow);
+      font-weight: 700;
+      user-select: all;
+    }
+    
+    /* Error Message Styling */
+    .error-message {
+      color: var(--core-orange); 
+      padding: 10px; 
+      border: 1px solid var(--core-orange); 
+      border-radius: 4px; 
+      margin-top: 15px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      .box {
+        max-width: 95%;
+      }
+      .input-container {
+        flex-direction: column;
+      }
+      .input-container input, .input-container button {
+        border-radius: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="particles" id="particles"></div>
+  <div class="container">
+    <div class="box" id="box">
+      <div class="box-header">
+        <div class="logo-text">DATA-CORE</div>
+        <h3>[ ACCESS TERMINAL ]</h3>
+        <h6>INPUT AUTHENTICATION KEY (WHATSAPP NUMBER)</h6>
+      </div>
+
+      <div class="box-content">
+        <div class="input-container">
+          <input placeholder="2547XXXXXXXX" type="tel" id="number" name="number" />
+          <button id="submit">AUTH >></button>
+        </div>
+      </div>
+      
+      <div class="box-footer">
+        <div id="waiting-message">:: DATA TRANSFER INITIATED... STAND BY ::</div>
+        <main id="pair"></main>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
+  <script>
+    // --- Particle Generation Script (Kept as is, colors updated) ---
+    const particlesContainer = document.getElementById('particles');
+    for (let i = 0; i < 30; i++) {
+      const p = document.createElement('div');
+      const size = Math.random() * 4 + 1; // Smaller particles
+      p.style.width = p.style.height = size + 'px';
+      p.style.background = ['var(--core-yellow)', 'var(--core-orange)'][Math.floor(Math.random()*2)];
+      p.style.left = Math.random()*100 + '%';
+      p.style.animationDuration = Math.random()*20 + 10 + 's';
+      p.style.animationDelay = Math.random()*8 + 's';
+      particlesContainer.appendChild(p);
+    }
+  
+    // --- Core Logic Script (Functionality is UNCHANGED) ---
+    const a = document.getElementById("pair");
+    const b = document.getElementById("submit");
+    const c = document.getElementById("number");
+    const waitingMessage = document.getElementById("waiting-message");
+  
+    // Functionality UNCHANGED, only text/icon updated for industrial look
+    async function Copy() {
+      const text = document.getElementById("copy-value").innerText;
+      const display = document.getElementById("code-display");
+      await navigator.clipboard.writeText(text);
+      display.innerHTML = '<i class="fas fa-check" style="color:#0f0"></i> AUTH KEY COPIED.'; // Green for success
+      display.style.boxShadow = "0 0 20px rgba(0, 255, 0, 0.5)";
+      setTimeout(() => {
+        display.innerHTML = `<i class="fas fa-key" style="color:var(--core-yellow)"></i>   
+          <span class="code-text">PAIRING KEY:</span>   
+          <span class="code-value" id="copy-value">${text}</span>`;
+        display.style.boxShadow = "var(--shadow-base)";
+      }, 1800);
+    }
+    window.Copy = Copy;
+  
+    b.addEventListener("click", async (e) => {
+      e.preventDefault();
+      if (!c.value) {
+        a.innerHTML = '<div class="error-message">:: FATAL ERROR :: Input Field Empty.</div>';
+        return;
+      }
+      if (c.value.replace(/[^0-9]/g,"").length < 10) {
+        a.innerHTML = '<div class="error-message">:: ERROR 402 :: Invalid Number Format.</div>';
+        return;
+      }
+  
+      const bc = c.value.replace(/[^0-9]/g,"");
+      waitingMessage.style.display = "block";
+      a.innerHTML = '';
+  
+      try {
+        // API call logic remains UNCHANGED
+        const { data } = await axios(`/code?number=${bc}`);
+        const code = data.code || "SYSTEM_OFFLINE_R02";
+        waitingMessage.style.display = "none";
+        // Updated HTML for the final output
+        a.innerHTML = `  
+          <div class="code-display" id="code-display" onclick="Copy()">  
+            <i class="fas fa-key" style="color:var(--core-yellow)"></i>  
+            <span class="code-text">PAIRING KEY:</span>  
+            <span class="code-value" id="copy-value">${code}</span>  
+          </div>`;
+      } catch {
+        waitingMessage.style.display = "none";
+        a.innerHTML = '<div class="error-message">:: SYSTEM FAILURE :: Connection Broken.</div>';
+      }
+    });
+  </script>
+</body>
+</html>
