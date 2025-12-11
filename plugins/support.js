@@ -72,10 +72,10 @@ module.exports = {
 │  📥 ɴᴇᴡ ꜱᴜᴘᴘᴏʀᴛ ʀᴇQᴜᴇꜱᴛ (#${ticketID})
 │  👤 ɴᴀᴍᴇ: ${userPushname}
 │  📱 ɴᴜᴍʙᴇʀ: wa.me/${sender.split("@")[0]}
-│  🕐 ᴛɪᴍᴇ: ${new Date().toLocaleString("en-US", { timeZone: "Asia/Colombo" })}
+│  🕐 ᴛɪᴍᴇ: ${new Date().toLocaleString("en-US", { timeZone: "Asia/Karachi" })}
 │  📝 ᴍᴇꜱꜱᴀɢᴇ: ${q}
 ╰───────────────⭓
-> 𝗽𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝗽𝗼𝗽𝗸𝗶𝗱
+> 𝗽𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 bilal
 `.trim();
 
       await socket.sendMessage(OWNER_JID, {
