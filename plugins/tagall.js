@@ -15,7 +15,7 @@ module.exports = {
     const memberCount = participants.length;
 
     // List of emojis for mentions
-    const emojis = ["🌺", "🌹", "🌟", "🌝", "🍒", "🍥", "🍷"];
+    const emojis = ["🌺", "🌹", "😍", "🥰", "☺️", "😇", "♥️"];
     
     // Create mentions with alternating emojis
     const mentionsText = participants.map((id, index) => {
@@ -34,14 +34,13 @@ module.exports = {
 │  
 │  📨 ᴍᴇꜱꜱᴀɢᴇ:  
 ╰───────────────⭓
-> 𝗽𝗼𝗽𝗸𝗶𝗱 𝘁𝗮𝗴𝘀
+> Bilal Md 𝘁𝗮𝗴𝘀
 
 ${mentionsText}
-  
-> 𝗽𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝗽𝗼𝗽𝗸𝗶𝗱`;
+  `;
 
     await sock.sendMessage(msg.key.remoteJid, {
-      image: { url: "https://files.catbox.moe/kiy0hl.jpg" },
+      image: { url: "https://files.catbox.moe/kunzpz.png" },
       caption: caption,
       mentions: participants
     }, { quoted: msg });
