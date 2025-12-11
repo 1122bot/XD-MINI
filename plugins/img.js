@@ -48,7 +48,7 @@ module.exports = {
 │  ├ 🖼️ *3* → 10 ᴍᴏʀᴇ ɪᴍᴀɢᴇꜱ
 │  ╰─────────────●●►
 │  
-│  ● 𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱 ●
+│  ● Bilal 𝘅𝗺𝗱 ●
 ╰───────────────⭓`;
 
         const sentMsg = await socket.sendMessage(from, {
@@ -71,13 +71,13 @@ module.exports = {
             ...media,
             title: `📸 Result ${i + 1}: ${query}\n\n👤 *Requested by:* ${pushname}`,
             gifPlayback: true,
-            subtitle: "𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱",
+            subtitle: "Bilal 𝘅𝗺𝗱",
             hasMediaAttachment: false,
           });
 
           cards.push({
             header,
-            body: { text: `\n\n● 𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱 ●` },
+            body: { text: `\n\n● Bilal 𝘅𝗺𝗱 ●` },
             nativeFlowMessage: {},
           });
         }
@@ -124,7 +124,7 @@ module.exports = {
               case "1":
                 await socket.sendMessage(from, {
                   image: { url: img1 },
-                  caption: `✅ *Here is your image!*\n> 𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱`,
+                  caption: `✅ *Here is your image!*\n> BILAL 𝘅𝗺𝗱`,
                 }, { quoted: mek });
                 break;
 
@@ -133,7 +133,7 @@ module.exports = {
                   document: { url: img2 },
                   mimetype: "image/jpeg",
                   fileName: `img_${Date.now()}.jpg`,
-                  caption: `📄 *Here is your image as document!*\n> 𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱`,
+                  caption: `📄 *Here is your image as document!*\n> BILAL 𝘅𝗺𝗱`,
                 }, { quoted: mek });
                 break;
 
