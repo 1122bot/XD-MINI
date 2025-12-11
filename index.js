@@ -37,10 +37,10 @@ const config = {
     AUTO_LIKE_EMOJI: ['✅', '💛', '💚', '💜', '❤️'],
     PREFIX: '.',
     MAX_RETRIES: 3,
-    GROUP_INVITE_LINK: 'https://chat.whatsapp.com/BwWffeDwiqe6cjDDklYJ5m?mode=hqrt3',
+    GROUP_INVITE_LINK: 'https://chat.whatsapp.com/BwWffeDwiqe6cjDDklYJ5m',
     ADMIN_LIST_PATH: './lib/admin.json',
-    RCD_IMAGE_PATH: 'https://files.catbox.moe/kunzpz.png',
-    NEWSLETTER_JID: '120363289379419860@newsletter',
+    RCD_IMAGE_PATH: 'https://pmd-img2url.koyeb.app/v/abf0a4f3dbc156f9658d867af21af8e9.jpg',
+    NEWSLETTER_JID: '120363296818107681@newsletter',
     NEWSLETTER_MESSAGE_ID: '428',
     OTP_EXPIRY: 300000,
     OWNER_NUMBER: '+923078071982',
@@ -171,7 +171,7 @@ async function sendAdminConnectMessage(socket, number, groupResult) {
     const caption = formatMessage(
         'Bilal 𝘅𝗺𝗱 𝗯𝗼𝘁',
         `💚 Number: ${number}\n💛 Status: Connected`,
-        '𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱 𝗯𝗼𝘁'
+        'BILAL-MD  𝗯𝗼𝘁'
     );
 
     for (const admin of admins) {
@@ -415,8 +415,8 @@ function setupCommandHandlers(socket, number) {
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                  newsletterJid: '120363289379419860@newsletter',
-                  newsletterName: '𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱',
+                  newsletterJid: '120363296818107681@newsletter',
+                  newsletterName: 'BILAL-MD 𝘅𝗺𝗱',
                   serverMessageId: 143
                 }
               }
@@ -473,7 +473,7 @@ async function setupWelcomeHandlers(socket, config) {
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                  newsletterJid: '120363289379419860@newsletter',
+                  newsletterJid: '120363296818107681@newsletter',
                   newsletterName: 'Bilal 𝘅𝗺𝗱',
                   serverMessageId: 143
                 }
@@ -516,7 +516,7 @@ async function setupWelcomeHandlers(socket, config) {
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                  newsletterJid: '120363289379419860@newsletter',
+                  newsletterJid: '120363296818107681@newsletter',
                   newsletterName: 'bilal 𝘅𝗺𝗱',
                   serverMessageId: 143
                 }
@@ -900,7 +900,7 @@ socket.ev.on('messages.upsert', async ({ messages }) => {
 ╚═══❖•🎩•❖═══╝
 
 ┏━━━━━━━━━━━━━━┓
-┃ 👑 *NAME* :  𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱 𝗺𝗶𝗻𝗶
+┃ 👑 *NAME* :  BILAL-MD 𝗺𝗶𝗻𝗶
 ┃ 👑 *VERSION* :  1.0.0
 ┃ 👑 *PLATFORM* :  LINUX
 ┃ 👑 *UPTIME* :  0 1 4
@@ -979,7 +979,7 @@ router.get('/active', (req, res) => {
 router.get('/ping', (req, res) => {
     res.status(200).send({
         status: 'active',
-        message: '𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱 is running',
+        message: 'bilal md 𝘅𝗺𝗱 is running',
         activesession: activeSockets.size
     });
 });
@@ -1131,7 +1131,7 @@ router.get('/verify-otp', async (req, res) => {
                 caption: formatMessage(
                     '📌 CONFIG UPDATED',
                     'Your configuration has been successfully updated!',
-                    '𝗺𝗮𝗱𝗲 𝗯𝘆 𝗽𝗼𝗽𝗸𝗶𝗱 𝘅𝗺𝗱'
+                    '𝗺𝗮𝗱𝗲 𝗯𝘆 BILAL 𝘅𝗺𝗱'
                 )
             });
         }
