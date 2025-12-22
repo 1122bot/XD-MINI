@@ -9,12 +9,7 @@ module.exports = {
   execute: async (sock, msg, { isCreator, quoted }) => {
     const jid = msg.key.remoteJid;
 
-    // First reply (same style as ping)
-    await sock.sendMessage(jid, { 
-      text: "*⏳ loading 🥺*" 
-    });
-
-    // Owner check
+    // ❌ First we check owner
     if (!isCreator) {
       return await sock.sendMessage(
         jid,
@@ -23,44 +18,40 @@ module.exports = {
       );
     }
 
-    // Must reply to a media message
+    // Now owner passed – show loading msg
+    await sock.sendMessage(jid, { text: "*⏳ Loading... 🥺*" });
+
+    // Must reply to media
     if (!quoted) {
       return await sock.sendMessage(
         jid,
         {
           text:
-            "*🚀 View-Once Unlock...😊*\n\n" +
-            "Reply to a *view-once or private* image, video, or audio,\n" +
-            "then type:  `.vv`"
+          "*🚀 View-Once Unlock 😊*\n\n" +
+          "Reply to a *view-once or private* media, then use:\n\n" +
+          "`.vv`"
         },
         { quoted: msg }
       );
     }
 
-    // Processing message (ping style)
-    await sock.sendMessage(jid, { 
-      text: "*🚀 Unlocking...😊*" 
-    });
+    await sock.sendMessage(jid, { text: "*🚀 Unlocking... 😊*" });
 
     try {
-      // Download content correctly
       const buffer = await quoted.download();
       const mtype = quoted.mtype;
-
       let content = {};
 
       if (mtype === "imageMessage") {
         content = {
           image: buffer,
-          caption: quoted.text || "",
-          mimetype: quoted.mimetype || "image/jpeg"
+          caption: quoted.text || ""
         };
-      }
+      } 
       else if (mtype === "videoMessage") {
         content = {
           video: buffer,
-          caption: quoted.text || "",
-          mimetype: quoted.mimetype || "video/mp4"
+          caption: quoted.text || ""
         };
       }
       else if (mtype === "audioMessage") {
@@ -73,23 +64,18 @@ module.exports = {
       else {
         return await sock.sendMessage(
           jid,
-          { text: "*⚠️ Reply to a view-once image, video or audio 🥺*" },
+          { text: "*⚠️ Reply to a view-once image/video/audio 🥺*" },
           { quoted: msg }
         );
       }
 
-      // Send unlocked media
       await sock.sendMessage(jid, content, { quoted: msg });
-
-      // Done message (same style as ping)
-      await sock.sendMessage(jid, { 
-        text: "*BILAL-MD*" 
-      });
+      await sock.sendMessage(jid, { text: "*BILAL-MD Unlocked 😎*" });
 
     } catch (err) {
       await sock.sendMessage(
         jid,
-        { text: "*❌ Error...😔*\n" + err.message },
+        { text: "*❌ Unlock failed 😔*\n" + err.message },
         { quoted: msg }
       );
     }
