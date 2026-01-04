@@ -8,7 +8,7 @@
     "start": "node lib/connection.js"
   },
   "engines": {
-    "node": "18.x"
+    "node": "20.x"
   },
   "dependencies": {
     "@whiskeysockets/baileys": "npm:@fuxxy-star/baileys",
