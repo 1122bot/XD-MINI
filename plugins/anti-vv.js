@@ -1,83 +1,85 @@
+// 🌟 coded by WHITESHADOW x Umar
+
+const cooldown = new Map(); // anti spam
+
 module.exports = {
-  command: "vv",
-  desc: "Unlock view-once or private media",
-  category: "owner",
-  use: ".vv (reply to media)",
-  fromMe: false,
-  filename: __filename,
+  name: "vv",
+  alias: ["viewonce", "view", "open"],
+  category: "tools",
 
-  execute: async (sock, msg, { isCreator, quoted }) => {
-    const jid = msg.key.remoteJid;
-
-    // ❌ First we check owner
-    if (!isCreator) {
-      return await sock.sendMessage(
-        jid,
-        { text: "*🚫 Owner only command 😊*" },
-        { quoted: msg }
-      );
-    }
-
-    // Now owner passed – show loading msg
-    await sock.sendMessage(jid, { text: "*⏳ Loading... 🥺*" });
-
-    // Must reply to media
-    if (!quoted) {
-      return await sock.sendMessage(
-        jid,
-        {
-          text:
-          "*🚀 View-Once Unlock 😊*\n\n" +
-          "Reply to a *view-once or private* media, then use:\n\n" +
-          "`.vv`"
-        },
-        { quoted: msg }
-      );
-    }
-
-    await sock.sendMessage(jid, { text: "*🚀 Unlocking... 😊*" });
-
+  async execute(client, message) {
     try {
-      const buffer = await quoted.download();
-      const mtype = quoted.mtype;
-      let content = {};
+      const chat = message.chat;
+      const user = message.sender;
+      const now = Date.now();
 
-      if (mtype === "imageMessage") {
-        content = {
+      // ⏳ anti spam (5 sec)
+      const delay = 5000;
+      if (cooldown.has(user)) {
+        const last = cooldown.get(user);
+        if (now - last < delay) {
+          return await client.sendMessage(chat, {
+            text: "*⏳ Thora ruk jao yar, spam mat karo 😅*"
+          }, { quoted: message });
+        }
+      }
+      cooldown.set(user, now);
+
+      // react
+      await client.sendMessage(chat, {
+        react: { text: "🥺", key: message.key }
+      });
+
+      // reply check
+      const quoted = message.quoted;
+      if (!quoted) {
+        return await client.sendMessage(chat, {
+          text: "*KISI VIEW ONCE PHOTO / VIDEO / AUDIO PAR REPLY KARO 🥺*\n\n*Phir likho:* `vv`"
+        }, { quoted: message });
+      }
+
+      // download media
+      const buffer = await quoted.download();
+      let msg = {};
+
+      if (quoted.mtype === "imageMessage") {
+        msg = {
           image: buffer,
           caption: quoted.text || ""
         };
       } 
-      else if (mtype === "videoMessage") {
-        content = {
+      else if (quoted.mtype === "videoMessage") {
+        msg = {
           video: buffer,
           caption: quoted.text || ""
         };
-      }
-      else if (mtype === "audioMessage") {
-        content = {
+      } 
+      else if (quoted.mtype === "audioMessage") {
+        msg = {
           audio: buffer,
           mimetype: "audio/mp4",
           ptt: quoted.ptt || false
         };
-      }
+      } 
       else {
-        return await sock.sendMessage(
-          jid,
-          { text: "*⚠️ Reply to a view-once image/video/audio 🥺*" },
-          { quoted: msg }
-        );
+        return await client.sendMessage(chat, {
+          text: "*YEH VIEW ONCE MEDIA NAHI HAI 🥺*"
+        }, { quoted: message });
       }
 
-      await sock.sendMessage(jid, content, { quoted: msg });
-      await sock.sendMessage(jid, { text: "*BILAL-MD Unlocked 😎*" });
+      // send unlocked media
+      await client.sendMessage(chat, msg, { quoted: message });
+
+      // success react
+      await client.sendMessage(chat, {
+        react: { text: "😃", key: message.key }
+      });
 
     } catch (err) {
-      await sock.sendMessage(
-        jid,
-        { text: "*❌ Unlock failed 😔*\n" + err.message },
-        { quoted: msg }
-      );
+      console.log("vv error:", err);
+      await client.sendMessage(message.chat, {
+        text: "❌ ERROR:\n" + err.message
+      }, { quoted: message });
     }
   }
 };
